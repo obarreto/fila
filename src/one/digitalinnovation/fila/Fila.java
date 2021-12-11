@@ -1,8 +1,8 @@
 package one.digitalinnovation.fila;
 
-public class Fila {
+public class Fila<T> {
 	
-	private No refNoEntradaFila; //referencia de entrada da fila
+	private No<T> refNoEntradaFila; //referencia de entrada da fila
 
 	public Fila() {
 		
@@ -10,13 +10,13 @@ public class Fila {
 		//quando estanciar a fila já será estanciada vazia
 	}
 	
-	public void enqueue(Object obj) {
-		No novoNo = new No(obj);
+	public void enqueue(T obj) {
+		No novoNo = new No(obj); // Embutindo o nó (Encapsulando)
 		novoNo.setRefNo(refNoEntradaFila);
 		refNoEntradaFila = novoNo;
 	}
 	
-	public Object first() {
+	public T first() {
 		if(!this.isEmpty()){
 			No primeiroNo = refNoEntradaFila;
 			while(true) {
@@ -26,13 +26,13 @@ public class Fila {
 					break;
 				}
 			}
-			return primeiroNo.getObject();
+			return (T) primeiroNo.getObject(); //casting
 		}
 		
 		return null;
 	}
 	
-	public Object dequeue() {
+	public T dequeue() {
 		if(!this.isEmpty()){
 			No primeiroNo = refNoEntradaFila;
 			No noAuxiliar = refNoEntradaFila;
@@ -46,7 +46,7 @@ public class Fila {
 					break;
 				}
 			}
-			return primeiroNo.getObject();
+			return (T) primeiroNo.getObject(); //casting
 		}
 		
 		return null;

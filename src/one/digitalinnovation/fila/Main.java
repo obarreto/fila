@@ -5,7 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Fila minhaFila = new Fila();
+		Fila<String> minhaFila = new Fila();
 		
 		minhaFila.enqueue("primeiro");
 		minhaFila.enqueue("segundo");
